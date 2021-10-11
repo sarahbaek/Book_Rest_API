@@ -1,6 +1,7 @@
 ﻿using Book_Library;
 using Book_Rest_API.Managers;
 
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 using System;
@@ -13,6 +14,8 @@ using System.Threading.Tasks;
 namespace Book_Rest_API.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowOnlyGet")]
+    [ApiExplorerSettings(GroupName = "v2")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -34,6 +37,7 @@ namespace Book_Rest_API.Controllers
         }
 
         // POST api/<BooksController>
+        [EnableCors("AllowOnlyGet")]
         [HttpPost]
         public Book Post([FromBody] Book value)
         {
@@ -41,6 +45,7 @@ namespace Book_Rest_API.Controllers
         }
 
         // PUT api/<BooksController>/5
+        [DisableCors]
         [HttpPut("{inISBN13}")]
         public Book Put(string inISBN13, [FromBody] Book value)
         {
