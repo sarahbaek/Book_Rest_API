@@ -34,13 +34,13 @@ namespace Book_Rest_API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ItemRestAPI", Version = "v1", Description = "Learning about APIs v1!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
                 c.SwaggerDoc("v2", new OpenApiInfo { Title = "ItemRestAPI", Version = "v2", Description = "Learning about APIs v2!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
             });
-            services.AddCors(options => options.AddPolicy("AllowAll",
-                builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
-                    .SetPreflightMaxAge(TimeSpan.FromSeconds(30))));
+            //services.AddCors(options => options.AddPolicy("AllowAll",
+            //    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+            //        .SetPreflightMaxAge(TimeSpan.FromSeconds(30))));
 
-            services.AddCors(options => options.AddPolicy("AllowOnlyGet",
-                builder => builder.AllowAnyOrigin().WithMethods("GET").AllowAnyHeader()
-                    .SetPreflightMaxAge(TimeSpan.FromSeconds(30))));
+            //services.AddCors(options => options.AddPolicy("AllowOnlyGet",
+            //    builder => builder.AllowAnyOrigin().WithMethods("GET").AllowAnyHeader()
+            //        .SetPreflightMaxAge(TimeSpan.FromSeconds(30))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +72,7 @@ namespace Book_Rest_API
                 c.SwaggerEndpoint("/swagger/v2/swagger.json", "ItemRestAPI v2");
             });
             app.UseRouting();
-            app.UseCors("AllowAll");
+            //app.UseCors("AllowAll");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

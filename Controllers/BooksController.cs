@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Book_Rest_API.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("AllowOnlyGet")]
+    //[EnableCors("AllowOnlyGet")]
     [ApiExplorerSettings(GroupName = "v2")]
     [ApiController]
     public class BooksController : ControllerBase
@@ -23,6 +23,7 @@ namespace Book_Rest_API.Controllers
         private readonly BooksManager _manager = new BooksManager();
 
         // GET: api/<BooksController>
+
         [HttpGet]
         public IEnumerable<Book> Get()
         {
@@ -37,7 +38,7 @@ namespace Book_Rest_API.Controllers
         }
 
         // POST api/<BooksController>
-        [EnableCors("AllowOnlyGet")]
+        //[EnableCors("AllowOnlyGet")]
         [HttpPost]
         public Book Post([FromBody] Book value)
         {
@@ -45,7 +46,7 @@ namespace Book_Rest_API.Controllers
         }
 
         // PUT api/<BooksController>/5
-        [DisableCors]
+        //[DisableCors]
         [HttpPut("{inISBN13}")]
         public Book Put(string inISBN13, [FromBody] Book value)
         {
@@ -60,35 +61,5 @@ namespace Book_Rest_API.Controllers
         }
     }
 
-    //    // GET: api/<BooksController>
-    //    [HttpGet]
-    //    public IEnumerable<string> Get()
-    //    {
-    //        return new string[] { "value1", "value2" };
-    //    }
-
-    //    // GET api/<BooksController>/5
-    //    [HttpGet("{id}")]
-    //    public string Get(int id)
-    //    {
-    //        return "value";
-    //    }
-
-    //    // POST api/<BooksController>
-    //    [HttpPost]
-    //    public void Post([FromBody] string value)
-    //    {
-    //    }
-
-    //    // PUT api/<BooksController>/5
-    //    [HttpPut("{id}")]
-    //    public void Put(int id, [FromBody] string value)
-    //    {
-    //    }
-
-    //    // DELETE api/<BooksController>/5
-    //    [HttpDelete("{id}")]
-    //    public void Delete(int id)
-    //    {
-    //    }
+    
 }
