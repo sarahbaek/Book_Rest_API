@@ -1,6 +1,7 @@
 ﻿using Book_Library;
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -25,9 +26,19 @@ namespace Book_Rest_API.Managers
         ///   // The Callers should no get a reference to the Data object, but rather get a copy
         /// </summary>
         /// <returns></returns>
-        public List<Book> GetAll()
+        //public List<Book> GetAll()
+        //{
+        //    return new List<Book>(Data);
+        //}
+        public IEnumerable<Book> GetAll(string inContains)
         {
-            return new List<Book>(Data);
+            List<Book> newTemporaryListBooks = new List<Book>(Data);
+            if (inContains != null)
+            {
+                newTemporaryListBooks = newTemporaryListBooks.FindAll(book => book.Title.Contains(inContains, StringComparison.OrdinalIgnoreCase));
+            }
+            return newTemporaryListBooks;
+           
         }
         #endregion
 
@@ -38,6 +49,11 @@ namespace Book_Rest_API.Managers
         /// </summary>
         /// <param name="inIsbn13"></param>
         /// <returns>The book with the id  the callertyped in  is returned </returns>
+        //public Book GetById(string inIsbn13)
+        //{
+        //    return Data.Find(book => book.ISBN13 == inIsbn13);
+        //}
+
         public Book GetById(string inIsbn13)
         {
             return Data.Find(book => book.ISBN13 == inIsbn13);
