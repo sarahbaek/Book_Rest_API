@@ -27,11 +27,15 @@ namespace Book_Rest_API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
         [ProducesResponseType(StatusCodes.Status204NoContent)]//nothing 
         [HttpGet]
-   
+
+        //public Book Get()
+        //{
+        //    return _manager.GetAll();
+        //}
         public ActionResult<IEnumerable<Book>> GetAll([FromQuery] string inContains)
         {
             IEnumerable<Book> books = _manager.GetAll(inContains);
-            if (books.Count() == 0)
+            if (books.Count()== 0)
             {
                 return NoContent();
             }
@@ -39,7 +43,7 @@ namespace Book_Rest_API.Controllers
             {
                 return Ok(books);
             }
-           
+
         }
 
         // GET api/<BooksController>/5
@@ -50,7 +54,7 @@ namespace Book_Rest_API.Controllers
         //{
         //    return _manager.GetById(inISBN13);
         //}
-        public ActionResult <Book> Get(string inISBN13)
+        public ActionResult<Book> Get(string inISBN13)
         {
             Book item = _manager.GetById((inISBN13));
             if (item == null)
@@ -61,7 +65,7 @@ namespace Book_Rest_API.Controllers
             {
                 return Ok(item);
             }
-            return _manager.GetById(inISBN13);
+    
         }
 
         // POST api/<BooksController>
@@ -76,6 +80,8 @@ namespace Book_Rest_API.Controllers
         {
             return Ok(_manager.Add(incomingBook));
         }
+
+
 
         // PUT api/<BooksController>/5
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
@@ -120,7 +126,7 @@ namespace Book_Rest_API.Controllers
             {
                 return Ok(deleteBook);
             }
-            return _manager.Delete(inISBN13);
+         
         }
 
 
