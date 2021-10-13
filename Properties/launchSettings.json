@@ -12,18 +12,17 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      //"launchUrl": "api/books",
-      "launchUrl": "swagger",
-      "environmentVariables": {
+      "launchUrl": "api/books",         //comment this line in order to use  swagger
+     //"launchUrl": "swagger",            //uncomment this line in order use swagger
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "Book_Rest_API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
-      "launchBrowser": true,
-     // "launchUrl": "api/books",
-      "launchUrl": "swagger",
+      "launchBrowser": true, 
+     "launchUrl": "api/books",     //comment this line in order to use swagger 
+    // "launchUrl": "swagger",          //uncomment this line in order to use swagger
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
