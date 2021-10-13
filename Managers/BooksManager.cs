@@ -14,8 +14,10 @@ namespace Book_Rest_API.Managers
         #region Initializing some books 
         private static readonly List<Book> Data = new List<Book>
         {
-            new Book { ISBN13 = "978-0-000-00000-1", Title = "Beauty and the beast", Author = "Maria", PageNumber = 200 },
-            new Book{ISBN13 = "978-0-000-00000-2", Title = "Learning C#", Author = "Andreas", PageNumber = 200}
+            new Book { ISBN13 = "978-0-000-00000-1", Title = "Online Schools After Corona", Author = "Monica", PageNumber = 200 },
+            new Book{ISBN13 = "978-0-000-00000-2", Title = "Beautiful Planet", Author = "Andreas", PageNumber = 200},
+            new Book { ISBN13 = "978-0-000-00000-3", Title = "Women are from Venus", Author = "Maria", PageNumber = 200 },
+            new Book{ISBN13 = "978-0-000-00000-2", Title = "Men are from Mars", Author = "Annette", PageNumber = 200}
 
         };
         #endregion
@@ -48,7 +50,7 @@ namespace Book_Rest_API.Managers
         /// 
         /// </summary>
         /// <param name="inIsbn13"></param>
-        /// <returns>The book with the id  the callertyped in  is returned </returns>
+        /// <returns>The book with the id  the caller typed in  is returned </returns>
         //public Book GetById(string inIsbn13)
         //{
         //    return Data.Find(book => book.ISBN13 == inIsbn13);

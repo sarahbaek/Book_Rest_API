@@ -31,8 +31,8 @@ namespace Book_Rest_API
             services.AddSwaggerGen(c =>
             {
                 //c.SwaggerDoc("v1", new OpenApiInfo { Title = "Items API", Version = "v1.0" });
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ItemRestAPI", Version = "v1", Description = "Learning about APIs v1!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
-                c.SwaggerDoc("v2", new OpenApiInfo { Title = "ItemRestAPI", Version = "v2", Description = "Learning about APIs v2!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookRestAPI", Version = "v1", Description = "Learning about APIs v1!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "BookRestAPI", Version = "v2", Description = "Learning about APIs v2!", Contact = new OpenApiContact { Name = "Sarah", Email = "sbaek18@gmail.com" } });
             });
         }
 
@@ -48,8 +48,8 @@ namespace Book_Rest_API
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ItemRestAPI v1");
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "ItemRestAPI v2");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookRestAPI v1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "BookRestAPI v2");
             });
             app.UseRouting();
             //app.UseCors("AllowAll");

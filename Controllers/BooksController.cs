@@ -20,14 +20,13 @@ namespace Book_Rest_API.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-
         private readonly BooksManager _manager = new BooksManager();
 
+        #region Method: GetAll()
         // GET: api/<BooksController>
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
         [ProducesResponseType(StatusCodes.Status204NoContent)]//nothing 
         [HttpGet]
-
         //public Book Get()
         //{
         //    return _manager.GetAll();
@@ -35,7 +34,7 @@ namespace Book_Rest_API.Controllers
         public ActionResult<IEnumerable<Book>> GetAll([FromQuery] string inContains)
         {
             IEnumerable<Book> books = _manager.GetAll(inContains);
-            if (books.Count()== 0)
+            if (books.Count() == 0)
             {
                 return NoContent();
             }
@@ -45,6 +44,9 @@ namespace Book_Rest_API.Controllers
             }
 
         }
+        #endregion
+
+        #region Method: Get()
 
         // GET api/<BooksController>/5
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
@@ -65,9 +67,12 @@ namespace Book_Rest_API.Controllers
             {
                 return Ok(item);
             }
-    
+
         }
 
+        #endregion
+
+        #region Method: Post()
         // POST api/<BooksController>
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
         //[EnableCors("AllowOnlyGet")]
@@ -76,13 +81,13 @@ namespace Book_Rest_API.Controllers
         //{
         //    return _manager.Add(value);
         //}
-        public  ActionResult <Book> Post([FromBody] Book incomingBook)
+        public ActionResult<Book> Post([FromBody] Book incomingBook)
         {
             return Ok(_manager.Add(incomingBook));
         }
+        #endregion
 
-
-
+        #region Method: Put()
         // PUT api/<BooksController>/5
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
         [ProducesResponseType(StatusCodes.Status404NotFound)] //error
@@ -93,7 +98,7 @@ namespace Book_Rest_API.Controllers
         //    return _manager.Update(inISBN13, value);
         //}
 
-        public ActionResult <Book> Put(string inISBN13, [FromBody] Book incomingBook)
+        public ActionResult<Book> Put(string inISBN13, [FromBody] Book incomingBook)
         {
             Book updateBook = _manager.Update(inISBN13, incomingBook);
             if (updateBook == null)
@@ -105,6 +110,9 @@ namespace Book_Rest_API.Controllers
                 return Ok(updateBook);
             }
         }
+        #endregion
+
+        #region Method: Delete()
         // DELETE api/<BooksController>/5
         [ProducesResponseType(StatusCodes.Status200OK)]//Ok
         [ProducesResponseType(StatusCodes.Status404NotFound)] //error
@@ -115,7 +123,7 @@ namespace Book_Rest_API.Controllers
         //}
 
 
-        public ActionResult< Book> Delete(string inISBN13)
+        public ActionResult<Book> Delete(string inISBN13)
         {
             Book deleteBook = _manager.Delete(inISBN13);
             if (deleteBook == null)
@@ -126,10 +134,9 @@ namespace Book_Rest_API.Controllers
             {
                 return Ok(deleteBook);
             }
-         
+
         }
-
-
+        #endregion
 
     }
 
